@@ -1,16 +1,33 @@
 #include <iostream>
 using namespace std;
-void name(int i,int n){
-    if(i>n){
-        return;
+
+void pattern(int N)
+{
+    for(int i = 0; i < N; i++)
+    {
+        // Print spaces
+        for(int j = 0; j < N - i - 1; j++)
+        {
+            cout << " ";
+        }
+
+        // Print stars
+        for(int j = 0; j < 2 * i + 1; j++)
+        {
+            cout << "*";
+        }
+
+        // Move to next line
+        cout << endl;
     }
-    cout<<"Vaibhav"<<" ";
-    name(i+1,n);
 }
-int main(){
-    int n;
-    cout<<"Enter the number of times you want to print the name: ";
-    cin>>n;
-    name(1,n);
-    
+
+int main()
+{
+    int N;
+    cin >> N;
+
+    pattern(N);
+
+    return 0;
 }
