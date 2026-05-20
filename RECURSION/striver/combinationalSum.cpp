@@ -3,7 +3,7 @@
 using namespace std;
 
 void combinationalSum(int index,
-                      int arr[],
+                      int candidates[],
                       int n,
                       vector<int>& ds,
                       vector<vector<int>>& ans,
@@ -20,18 +20,18 @@ void combinationalSum(int index,
     }
 
     // Include current element
-    if (arr[index] <= target)
+    if (candidates[index] <= target)
     {
-        ds.push_back(arr[index]);
+        ds.push_back(candidates[index]);
 
-        combinationalSum(index, arr, n, ds, ans, target - arr[index]);
+        combinationalSum(index, candidates, n, ds, ans, target - candidates[index]);
 
         // Backtracking
         ds.pop_back();
     }
 
     // Exclude current element
-    combinationalSum(index + 1, arr, n, ds, ans, target);
+    combinationalSum(index + 1, candidates, n, ds, ans, target);
 }
 
 int main()
@@ -44,19 +44,19 @@ int main()
     cout << "ENTER THE NUMBER OF ELEMENTS: ";
     cin >> n;
 
-    int arr[n];
+    int candidates[n];
 
     cout << "ENTER THE ELEMENTS: ";
 
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+        cin >> candidates[i];
     }
 
     vector<int> ds;
     vector<vector<int>> ans;
 
-    combinationalSum(0, arr, n, ds, ans, target);
+    combinationalSum(0, candidates, n, ds, ans, target);
 
     cout << "\nCombinations are:\n";
 
