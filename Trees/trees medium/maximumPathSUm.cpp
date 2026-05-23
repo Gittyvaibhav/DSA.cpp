@@ -1,6 +1,7 @@
 // longest distance between two nodes it may or may not pass through root node
 #include <iostream>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -18,31 +19,33 @@ struct Node
     }
 };
 
-int diameter(Node *root, int &dia)
+int maxPath(Node *root, vector<int> &max, int &sum)
 {
     if (root == nullptr)
     {
         return 0;
     }
-    int lH = diameter(root->left, dia);
-    int rH = diameter(root->right, dia);
+    int lh = maxPath(root->left, max, sum + root->data);
+    int rh = maxPath(root->right, max, sum + root->data);
 
-    dia = max(dia, lH+rH);
+    max.push_back(sum);
 
-    return 1 + max(lH, rH);
+    int mx = *max_element(max.begin(), max.end());
+    return mx;
 }
 
 int main()
 {
-    Node *root = new Node(3);
+    Node *root = new Node(-10);
     root->left = new Node(9);
-    root->right = new Node(30);
+    root->right = new Node(20);
     root->right->left = new Node(15);
     root->right->right = new Node(7);
-    int dia = 0;
-    diameter(root, dia);
-    cout << "The diameter of binary tree is : "
-         << dia << endl;
+    vector<int> max;
+    int sum = 0;
+    maxPath(root, max, sum);
+    cout << "The the sum of most optimal path is : "
+         << maxPath << endl;
 
     return 0;
 }
