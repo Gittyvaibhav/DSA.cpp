@@ -27,16 +27,17 @@ int maxPath(Node *root)
         return 0;
     }
 
-    int leftSum = max(0, maxPath(root->left));
+    int leftSum = max(0, maxPath(root->left));//discard negative paths and consider only positive contributions
     int rightSum = max(0, maxPath(root->right));
 
     // path passing through current node
-    int currentPath = root->data + leftSum + rightSum;
+    int currentPath = root->data + leftSum + rightSum;//consider the path that includes both left and right contributions
 
-    // update global maximum
+    // update global maximum if current path is greater than the previously recorded maximum 
     maxi = max(maxi, currentPath);
 
     // return single best path upward
+    // return the maximum path sum that can be extended to the parent node
     return root->data + max(leftSum, rightSum);
 }
 
