@@ -1,4 +1,4 @@
-// longest distance between two nodes it may or may not pass through root node
+// diameter of binary tree is the longest path between any two nodes in the tree. The path may or may not pass through the root. The diameter of a binary tree can be computed by recursively calculating the diameter of left and right subtrees and the longest path through the root. The diameter of the tree is the maximum of these three values.
 #include <iostream>
 #include <algorithm>
 
@@ -27,7 +27,7 @@ int diameter(Node *root, int &dia)
     int lH = diameter(root->left, dia);
     int rH = diameter(root->right, dia);
 
-    dia = max(dia, lH+rH);
+    dia = max(dia, lH+rH);// update the diameter if the longest path through the root is greater than the current diameter//diameter will become the maximum of the current diameter and the longest path through the root which is the sum of left height and right height
 
     return 1 + max(lH, rH);
 }

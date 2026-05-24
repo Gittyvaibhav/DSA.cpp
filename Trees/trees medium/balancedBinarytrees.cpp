@@ -43,6 +43,9 @@ bool check(Node *root)
     int rH = findHeight(root->right);
 
     // Check current node balance
+    //if the absolute difference between left and right subtree height is greater than 1 then we can say that the current node is not balanced and we return false.
+    //we check for false and not for true because if any of the subtree is not balanced then we can say that the current node is not balanced and we return false.
+    //if we do for true then we will return true if any of the subtree is balanced and we can not say that the current node is balanced because we need both left and right subtree to be balanced to say that the current node is balanced.
     if (abs(lH - rH) > 1)
     {
         return false;
