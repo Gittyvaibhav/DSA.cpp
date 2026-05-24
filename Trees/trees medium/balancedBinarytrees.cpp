@@ -1,4 +1,5 @@
 //in balanced binary tree for every node , height(left)-height(right)<=1
+//Approach: find height of left and right subtree for every node and check balance condition
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -47,10 +48,11 @@ bool check(Node *root)
         return false;
     }
 
-    // Check left and right subtrees
+    // Check left and right subtrees.
+    //so we do a recursive call for left and right subtree and return false if any of them is not balanced.
     bool left = check(root->left);
     bool right = check(root->right);
-
+    // If both left and right subtree are balanced then only we can say that the current node is balanced.therefore we return left && right.not left || right because if any of them is false then we can say that the current node is not balanced.
     return left && right;
 }
 

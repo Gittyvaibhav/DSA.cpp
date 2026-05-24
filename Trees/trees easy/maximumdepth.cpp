@@ -18,7 +18,10 @@ struct Node
         right = nullptr;
     }
 };
+// uses auxiliary stack space of O(h) where h is height of tree
+// skew tree will have O(n) space complexity where n is number of nodes in tree
 
+//recursive approach
 int maximumDepth(Node *root)
 {
     if (root == nullptr)
@@ -26,10 +29,11 @@ int maximumDepth(Node *root)
         return 0;
     }
 
-    int lH=maximumDepth(root->left);
+    int lH=maximumDepth(root->left);//  recursive call to left subtree to find its height.
     int rH=maximumDepth(root->right);
 
-    return 1+max(lH,rH);
+    return 1+max(lH,rH);// 1 for current node and max of left and right subtree height.
+    //recursive calls will return the height of left and right subtree, and we take the maximum of those two heights and add 1 to account for the current node. This way, we are effectively calculating the height of the tree as we traverse it.
     
 }
 

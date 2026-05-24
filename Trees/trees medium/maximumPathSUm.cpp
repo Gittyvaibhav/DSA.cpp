@@ -1,7 +1,6 @@
-// longest distance between two nodes it may or may not pass through root node
 #include <iostream>
 #include <algorithm>
-#include <vector>
+#include <climits>
 
 using namespace std;
 
@@ -19,33 +18,42 @@ struct Node
     }
 };
 
-int maxPath(Node *root, vector<int> &max, int &sum)
+int maxi = INT_MIN;
+
+int maxPath(Node *root)
 {
     if (root == nullptr)
     {
         return 0;
     }
-    int lh = maxPath(root->left, max, sum + root->data);
-    int rh = maxPath(root->right, max, sum + root->data);
 
-    max.push_back(sum);
+    int leftSum = max(0, maxPath(root->left));
+    int rightSum = max(0, maxPath(root->right));
 
-    int mx = *max_element(max.begin(), max.end());
-    return mx;
+    // path passing through current node
+    int currentPath = root->data + leftSum + rightSum;
+
+    // update global maximum
+    maxi = max(maxi, currentPath);
+
+    // return single best path upward
+    return root->data + max(leftSum, rightSum);
 }
 
 int main()
 {
     Node *root = new Node(-10);
+
     root->left = new Node(9);
+
     root->right = new Node(20);
     root->right->left = new Node(15);
     root->right->right = new Node(7);
-    vector<int> max;
-    int sum = 0;
-    maxPath(root, max, sum);
-    cout << "The the sum of most optimal path is : "
-         << maxPath << endl;
+
+    maxPath(root);
+
+    cout << "Maximum Path Sum is : "
+         << maxi << endl;
 
     return 0;
 }
