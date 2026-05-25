@@ -4,7 +4,7 @@
 
 using namespace std;
 
-struct Node {
+struct Node { 
     int data;
     Node *left;
     Node *right;
