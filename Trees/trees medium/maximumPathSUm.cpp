@@ -28,6 +28,8 @@ int maxPath(Node *root)
     }
 
     int leftSum = max(0, maxPath(root->left));//discard negative paths and consider only positive contributions
+
+    //backtrack and calculate the maximum path sum for the right subtree
     int rightSum = max(0, maxPath(root->right));
 
     // path passing through current node
