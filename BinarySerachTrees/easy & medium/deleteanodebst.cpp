@@ -23,21 +23,23 @@ TreeNode *deleteNode(TreeNode *root, int val)
     }
 
     TreeNode *curr = root;
-    TreeNode *parent=nullptr;
-    while(curr!=nullptr && curr->data!=val){
+    TreeNode *parent = nullptr;
+    while (curr != nullptr && curr->data != val)
+    {
         parent = curr;
-        if(curr->data<val){
-            curr=curr->left;
-        }else{
-            curr=curr->right;
+        if (curr->data < val)
+        {
+            curr = curr->left;
+        }
+        else
+        {
+            curr = curr->right;
         }
     }
-    if(curr==nullptr){
+    if (curr == nullptr)
+    {
         return root;
     }
-
-
-    
 }
 
 void inorder(TreeNode *root)
