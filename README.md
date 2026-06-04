@@ -4,6 +4,8 @@ This repository collects Data Structures & Algorithms practice problems and impl
 
 I'll cover an entire set of DSA topics here — implementations, explanations, and example usage.
 
+Ive followed Striver's DSA series on TUF for the structure and content of this repository, but feel free to explore and add your own solutions!
+
 Contents (partial)
 - arrays/
 - 2darrays/
@@ -12,10 +14,10 @@ Contents (partial)
 - sorting/
 - recursion/
 - linkedlist/
-- BinarySerachTrees/ (Binary Search Trees)
+- BinarySerachTrees/ 
 - hashing/
 - Trees/
-- graphs/ (to be added)
+- graphs/
 
 How to run a solution
 1. Open a terminal in the directory containing the source file.
@@ -41,3 +43,5 @@ Next steps (suggested)
 - Add per-topic README or problem lists in each folder.
 - Add basic tests or sample inputs for each solution.
 - Add a CONTRIBUTING.md and LICENSE if desired.
+
+Feel free to explore, practice, and contribute! Happy coding!
