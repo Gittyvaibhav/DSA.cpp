@@ -2,7 +2,8 @@
 //  In memoization, we typically define a recursive function that checks if the result of a subproblem is already stored in the cache before performing the recursive calls. If the result is found in the cache, we return it immediately; otherwise, we compute the result, store it in the cache, and then return it. This approach can significantly improve the performance of algorithms that would otherwise have a large number of redundant calculations, such as the Fibonacci sequence or the knapsack problem.
 
 //converting recursion to memoiation
-
+// time complexity O(n)
+//space complexity O(N)+O(N) array + stack space
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -11,10 +12,11 @@ int f(int n, vector<int>& dp)
 {
     if (n <= 1)
         return n;
-
+// Check if the result is already computed and stored in the dp array
     if (dp[n] != -1)
+    // If it is, return the stored result
         return dp[n];
-
+// If not, compute the result recursively and store it in the dp array before returning it
     return dp[n] = f(n - 1, dp) + f(n - 2, dp);
 }
 
