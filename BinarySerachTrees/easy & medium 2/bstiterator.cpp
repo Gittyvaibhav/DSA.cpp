@@ -1,3 +1,22 @@
+// BST Iterator root->(7)
+//3 , 7, 9, 15, 20
+//initially pointer is at nullptr
+// next() -> 3, pointer moves to 3
+//next -> 7, pointer moves to 7
+//hasNext() -> true, pointer is at 7
+//next -> 9, pointer moves to 9
+//hasNext() -> true, pointer is at 9
+//next -> 15, pointer moves to 15
+//hasNext() -> true, pointer is at 15
+//next -> 20, pointer moves to 20
+//hasNext() -> false, pointer is at 20
+//vector to store the elements of the BST in sorted order inorder traversal
+//left-root-right
+//space complexity O(H) for storing the elements in vector where H is the height of the tree
+//time complexity O(1) for next() and hasNext() as we are just moving the pointer in the vector
+//logic for next() -> return the element at the pointer and move the pointer to the next element in the vector
+//logic for hasNext() -> check if the pointer is at the end of the vector or not
+
 #include <iostream>
 #include <stack>
 using namespace std;
