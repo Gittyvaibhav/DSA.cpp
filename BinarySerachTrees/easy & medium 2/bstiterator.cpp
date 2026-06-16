@@ -1,4 +1,7 @@
 // BST Iterator root->(7)
+//bst iterator is a class that takes the root of a binary search tree and allows us to iterate through the elements of the tree in sorted order
+//inorder traversal of the tree will give us the elements in sorted order
+//difference between BST iterator and normal iterator is that BST iterator uses a stack to store the elements of the tree while normal iterator uses a vector to store the elements of the tree
 //3 , 7, 9, 15, 20
 //initially pointer is at nullptr
 // next() -> 3, pointer moves to 3
