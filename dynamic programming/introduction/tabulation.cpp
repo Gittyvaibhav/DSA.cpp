@@ -1,5 +1,7 @@
 // Fibonacci using tabulation
 // Tabulation means storing answers of smaller problems in a table.
+//time complexity: O(n)
+//space complexity: O(n)
 
 #include <iostream>
 #include <vector>
