@@ -2,41 +2,35 @@
 #include <vector>
 using namespace std;
 
-void subSequence(int arr[], int start, int n, vector<int> &ans, int target, int currentSum)
+bool subSequence(int arr[], int start, int n, vector<int> &ans, int target, int currentSum)
 {
     // Base condition
-    if (start >= n)
+    if (start == n)
     {
         if (currentSum == target)
         {
-            cout << "{ ";
-
-            for (int x : ans)
-
-            {
-                cout << x << " ";
-            }
-
-            cout << "}" << endl;
+            return true;
         }
-        return;
+        return false;
     }
 
     // Include current element
     ans.push_back(arr[start]);
-    subSequence(arr, start + 1, n, ans, target, currentSum + arr[start]);
+    bool pick = subSequence(arr, start + 1, n, ans, target, currentSum + arr[start]);
 
     // Backtracking
     ans.pop_back();
 
     // Exclude current element
-    subSequence(arr, start + 1, n, ans, target, currentSum);
+    bool notPick = subSequence(arr, start + 1, n, ans, target, currentSum);
+
+    return pick || notPick;
 }
 
 int main()
 {
-    int n;
-    int k;
+    int n, k;
+
     cout << "ENTER THE TARGET SUM: ";
     cin >> k;
 
@@ -46,7 +40,6 @@ int main()
     int arr[n];
 
     cout << "ENTER THE ELEMENTS: ";
-
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
@@ -54,9 +47,10 @@ int main()
 
     vector<int> ans;
 
-    cout << "\nAll Subsequences:\n";
-
-    subSequence(arr, 0, n, ans, k, 0);
+    if (subSequence(arr, 0, n, ans, k, 0))
+        cout << "True";
+    else
+        cout << "False";
 
     return 0;
 }
