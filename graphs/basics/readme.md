@@ -14,3 +14,7 @@
 
 //edge weight if not assigned then assume 1
 
+
+n nodes and m edges will be  given
+
+matrix method or adjcency matrix adj[n+1][n+1]
