@@ -7,8 +7,6 @@ The structure follows a learning path similar to Striver's DSA/TUF style: start 
 ## Repository Snapshot
 
 - Language: C++
-- Source files: 203 `.cpp` files
-- Build style: standalone compilation per file
 - Main focus: DSA concepts, LeetCode-style problems, recursion/backtracking, trees, graphs, and dynamic programming
 - Note: compiled `.exe` files are also present beside many source files
 
@@ -97,10 +95,4 @@ g++ "dynamic programming/1D Dp/frogjump/frogjump.cpp" -o frogjump.exe
 - Prefer adding a short comment at the top when the problem statement is not obvious from the filename.
 - Include sample input/output in comments when a program expects interactive input.
 
-## Possible Next Improvements
 
-- Add topic-level README files with problem lists.
-- Remove generated `.exe` files from version control.
-- Expand `.gitignore` to ignore compiled binaries and editor scratch files.
-- Add a simple scripts folder or Makefile for common compile commands.
-- Add sample inputs and expected outputs for important problems.
